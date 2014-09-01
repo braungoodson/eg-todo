@@ -32,9 +32,9 @@
                   <input type="text" class="form-control" placeholder="e.g., go to the store" value="{{item.todo}}" ng-class="{'ok':item.ok,'warning':item.warning,'fire':item.fire}"/>
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button" ng-click="remove($index)"><span class="glyphicon glyphicon-remove"></span></button>
-                    <button class="btn btn-default" type="button" ng-click="ok($index)"><span class="glyphicon glyphicon-ok"></span></button>
-                    <button class="btn btn-default" type="button" ng-click="warning($index)"><span class="glyphicon glyphicon-warning-sign"></span></button>
-                    <button class="btn btn-default" type="button" ng-click="fire($index)"><span class="glyphicon glyphicon-fire"></span></button>
+                    <button class="btn btn-default" type="button" ng-click="ok($index)"><span class="glyphicon glyphicon-ok" ng-class="{'ok':item.ok}"></span></button>
+                    <button class="btn btn-default" type="button" ng-click="warning($index)"><span class="glyphicon glyphicon-warning-sign" ng-class="{'warning':item.warning}"></span></button>
+                    <button class="btn btn-default" type="button" ng-click="fire($index)"><span class="glyphicon glyphicon-fire" ng-class="{'fire':item.fire}"></span></button>
                   </span>
                 </div>
 
