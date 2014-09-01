@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="app">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,54 @@
 		<link rel="stylesheet" type="text/css" href="bower_components/twitter/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="bower_components/twitter/dist/css/bootstrap-theme.min.css" />
 		<link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="icon" type="image/png" href-"assets/favicon.png">
 	</head>
 <body>
+	<section ng-app="egTodo">
+		<div ng-controller="egTodoController" class="container-fluid">
+			<div class="container">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">egTodo</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<input type="text" class="form-control" placeholder="e.g., go to the store" ng-model="todo.todo"/>
+                <button type="submit" class="btn btn-default btn-lg btn-block" ng-click="add({todo:todo.todo});">todo</button>
+							</div>
+						</div>
+
+						<div class="row" ng-repeat="item in todo.items track by $index">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="e.g., go to the store" value="{{item.todo}}" ng-class="{'ok':item.ok,'warning':item.warning,'fire':item.fire}"/>
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="remove($index)"><span class="glyphicon glyphicon-remove"></span></button>
+                    <button class="btn btn-default" type="button" ng-click="ok($index)"><span class="glyphicon glyphicon-ok"></span></button>
+                    <button class="btn btn-default" type="button" ng-click="warning($index)"><span class="glyphicon glyphicon-warning-sign"></span></button>
+                    <button class="btn btn-default" type="button" ng-click="fire($index)"><span class="glyphicon glyphicon-fire"></span></button>
+                  </span>
+                </div>
+
+
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section ng-app="app"></section>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/twitter/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 	<script src="index.js"></script>
 </body>
 </html>
